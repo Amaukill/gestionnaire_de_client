@@ -82,7 +82,9 @@ class ClientView extends StatelessWidget {
                 ),
                 onPressed: () {
                   Get.to(
-                    FormClient(),
+                    FormClient(
+                      client: client,
+                    ),
                   );
                 },
               ),
@@ -93,8 +95,11 @@ class ClientView extends StatelessWidget {
               const Icon(
                 Icons.phone,
               ),
-              Text(
-                client.tel,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text(
+                  client.tel,
+                ),
               ),
             ],
           ),
@@ -103,12 +108,11 @@ class ClientView extends StatelessWidget {
               Icon(
                 Icons.mail,
               ),
-              Text(
-                client.email,
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.red),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text(
+                  client.email,
+                ),
               ),
             ],
           ),
