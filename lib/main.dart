@@ -48,6 +48,29 @@ class MyApp extends StatelessWidget {
                 email: "a.terrieur@xefi.fr",
                 societe: "Xefi"),
             Client(
+                firstName: "Alex",
+                lastName: "Terrieur",
+                tel: "09 15 24 36 20",
+                email: "a.terrieur1@xefi.fr",
+                societe: "Xefi"),
+            Client(
+                firstName: "Alex",
+                lastName: "Terrieur",
+                tel: "09 15 24 36 20",
+                email: "a.terrieur1@xefi.fr",
+                societe: "Xefi"),
+            Client(
+                firstName: "Alex",
+                lastName: "Terrieur",
+                tel: "09 15 24 36 20",
+                email: "a.terrieur1@xefi.fr",
+                societe: "Xefi"),
+            Client(
+                firstName: "Alex",
+                lastName: "Terrieur",
+                tel: "09 15 24 36 20",
+                email: "a.terrieur1@xefi.fr",
+                societe: "Xefi"),
           ].obs),
         ),
         GetPage(
