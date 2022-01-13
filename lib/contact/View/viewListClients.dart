@@ -98,10 +98,19 @@ class ClientView extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            client.email,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),
+          Row(
+            children: [
+              Icon(
+                Icons.mail,
+              ),
+              Text(
+                client.email,
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.red),
+              ),
+            ],
           ),
         ],
       ),
