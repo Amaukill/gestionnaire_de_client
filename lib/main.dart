@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
                 tel: "07 41 10 54 91",
                 email: "a.terrieur@xefi.fr",
                 societe: "Xefi"),
+            Client(
           ].obs),
         ),
         GetPage(
