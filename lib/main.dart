@@ -3,6 +3,8 @@ import 'package:gestionnaire_de_client/contact/view/viewListClients.dart';
 import 'package:gestionnaire_de_client/contact/model/client.dart';
 import 'package:get/get.dart';
 
+import 'contact/details/formulaire.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -46,6 +48,10 @@ class MyApp extends StatelessWidget {
                 email: "a.terrieur@xefi.fr",
                 societe: "Xefi"),
           ].obs),
+        ),
+        GetPage(
+          name: '/ModifyClient',
+          page: () => FormClient(),
         ),
       ],
     );

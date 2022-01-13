@@ -1,19 +1,5 @@
 import 'package:flutter/material.dart';
 
-class Form extends StatelessWidget {
-  const Form({Key? key}) : super(key: key);
-
-  static const String _title = 'Jean-Paul Larue';
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: FormClient(),
-    );
-  }
-}
-
 class FormClient extends StatelessWidget {
   const FormClient({Key? key}) : super(key: key);
 
