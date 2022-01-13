@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestionnaire_de_client/contact/details/formulaire.dart';
 import 'package:gestionnaire_de_client/contact/model/client.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +19,6 @@ class ClientListView extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: const Color(0xdfe6ed),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -35,6 +35,15 @@ class ClientListView extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.to(
+            FormClient(),
+          );
+        },
+        backgroundColor: Colors.red.shade800,
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -68,18 +77,26 @@ class ClientView extends StatelessWidget {
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
               ),
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.more_horiz_outlined,
                 ),
                 onPressed: () {
-                  //GetPage(name: 'ModifyClient',page: ),
+                  Get.to(
+                    FormClient(),
+                  );
                 },
               ),
             ],
           ),
-          Text(
-            client.tel,
-            style: const TextStyle(fontSize: 15, color: Colors.grey),
+          Row(
+            children: [
+              const Icon(
+                Icons.phone,
+              ),
+              Text(
+                client.tel,
+              ),
+            ],
           ),
           Text(
             client.email,
