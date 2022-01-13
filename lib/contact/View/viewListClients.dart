@@ -82,7 +82,9 @@ class ClientView extends StatelessWidget {
                 ),
                 onPressed: () {
                   Get.to(
-                    FormClient(),
+                    FormClient(
+                      client: client,
+                    ),
                   );
                 },
               ),

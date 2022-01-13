@@ -5,6 +5,7 @@ class Client {
   String telPro;
   String fax;
   String societe;
+  String poste;
   String email;
   Client(
       {required this.firstName,
@@ -12,6 +13,7 @@ class Client {
       this.tel = "",
       this.telPro = "",
       this.fax = "",
+      this.poste = "",
       required this.email,
       required this.societe});
 }
