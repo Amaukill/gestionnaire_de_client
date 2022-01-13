@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gestionnaire_de_client/contact/View/ViewListClients.dart';
-import 'package:gestionnaire_de_client/contact/Model/client.dart';
+import 'package:gestionnaire_de_client/contact/view/viewListClients.dart';
+import 'package:gestionnaire_de_client/contact/model/client.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -38,7 +38,13 @@ class MyApp extends StatelessWidget {
                 lastName: "Dupont",
                 tel: "06 07 68 60 95",
                 email: "jp.dupont@xefi.fr",
-                societe: "Xefi")
+                societe: "Xefi"),
+            Client(
+                firstName: "Alain",
+                lastName: "Terrieur",
+                tel: "07 41 10 54 91",
+                email: "a.terrieur@xefi.fr",
+                societe: "Xefi"),
           ].obs),
         ),
       ],

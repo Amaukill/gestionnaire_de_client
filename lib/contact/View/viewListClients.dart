@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gestionnaire_de_client/contact/Model/client.dart';
+import 'package:gestionnaire_de_client/contact/model/client.dart';
 import 'package:get/get.dart';
 
 class ClientListView extends StatelessWidget {
@@ -10,10 +9,16 @@ class ClientListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey.shade200,
+        backgroundColor: Colors.red.shade800,
         centerTitle: true,
-        title: Text("Mon app"),
+        title: const Text(
+          "Mon app",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
+      backgroundColor: const Color(0xdfe6ed),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -21,13 +26,9 @@ class ClientListView extends StatelessWidget {
               itemCount: listClients.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.fromLTRB(10, 8, 10, 8),
+                  padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
                   child: ClientView(
-                    nom: listClients[index].firstName +
-                        " " +
-                        listClients[index].lastName,
-                    numTel: listClients[index].tel,
-                    email: listClients[index].email,
+                    client: listClients[index],
                   ),
                 );
               },
@@ -40,38 +41,49 @@ class ClientListView extends StatelessWidget {
 }
 
 class ClientView extends StatelessWidget {
-  final String nom;
-  final String numTel;
-  final String email;
-  const ClientView(
-      {Key? key, required this.nom, required this.numTel, required this.email})
-      : super(key: key);
+  final Client client;
+  const ClientView({Key? key, required this.client}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 150,
       decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.grey,
-            width: 1,
-          ),
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
+        color: Colors.white,
+        border: Border.all(
+          color: Colors.grey,
+          width: 1,
+        ),
+      ),
       padding: const EdgeInsets.fromLTRB(20, 5, 5, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            nom,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                client.firstName + " " + client.lastName,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.more_horiz_outlined,
+                ),
+                onPressed: () {
+                  //GetPage(name: 'ModifyClient',page: ),
+                },
+              ),
+            ],
           ),
           Text(
-            numTel.toString(),
-            style: TextStyle(fontSize: 15, color: Colors.grey),
+            client.tel,
+            style: const TextStyle(fontSize: 15, color: Colors.grey),
           ),
           Text(
-            email,
-            style: TextStyle(
+            client.email,
+            style: const TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 20, color: Colors.red),
           ),
         ],
