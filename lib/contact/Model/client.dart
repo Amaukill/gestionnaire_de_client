@@ -8,12 +8,12 @@ class Client {
   String poste;
   String email;
   Client(
-      {required this.firstName,
-      required this.lastName,
+      {this.firstName = "",
+      this.lastName = "",
       this.tel = "",
       this.telPro = "",
       this.fax = "",
       this.poste = "",
-      required this.email,
-      required this.societe});
+      this.email = "",
+      this.societe = ""});
 }
