@@ -19,13 +19,16 @@ class FormClient extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(client.firstName),
-        backgroundColor: Colors.grey,
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.red.shade800,
         actions: <Widget>[
           ElevatedButton(
             child: const Icon(
               Icons.task_alt_outlined,
-              color: Colors.green,
+              color: Colors.black,
             ),
             onPressed: () {
               if (_formKey.currentState!.validate()) {
@@ -48,7 +51,7 @@ class FormClient extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: Container(
                 width: 700,
-                height: 235,
+                height: 240,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(
@@ -57,6 +60,7 @@ class FormClient extends StatelessWidget {
                   ),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Informations',
@@ -66,48 +70,58 @@ class FormClient extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Flexible(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              border: const OutlineInputBorder(),
-                              hintText: client.lastName,
+                          flex: 6,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                border: const OutlineInputBorder(),
+                                hintText: client.lastName,
+                              ),
+                              onSaved: (lastName) =>
+                                  client.lastName = lastName ?? "",
+                              validator: (String? value) {
+                                if (value != null &&
+                                    value != "Nom" &&
+                                    value != "") {
+                                  client.lastName = value;
+                                } else {
+                                  return 'Nom obligatoire';
+                                }
+                              },
                             ),
-                            onSaved: (lastName) =>
-                                client.lastName = lastName ?? "",
-                            validator: (String? value) {
-                              if (value != null &&
-                                  value != "Nom" &&
-                                  value != "") {
-                                client.lastName = value;
-                              } else {
-                                return 'Nom obligatoire';
-                              }
-                            },
                           ),
                         ),
                         Flexible(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              border: const OutlineInputBorder(),
-                              hintText: client.firstName,
+                          flex: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5, vertical: 5),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                border: const OutlineInputBorder(),
+                                hintText: client.firstName,
+                              ),
+                              onSaved: (firstName) =>
+                                  client.lastName = firstName ?? "",
+                              validator: (String? value) {
+                                if (value != null &&
+                                    value != "Prénom" &&
+                                    value != "") {
+                                  client.firstName = value;
+                                } else {
+                                  return 'Prénom obligatoire';
+                                }
+                              },
                             ),
-                            onSaved: (firstName) =>
-                                client.lastName = firstName ?? "",
-                            validator: (String? value) {
-                              if (value != null &&
-                                  value != "Prénom" &&
-                                  value != "") {
-                                client.firstName = value;
-                              } else {
-                                return 'Prénom obligatoire';
-                              }
-                            },
                           ),
                         ),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 7),
+                          horizontal: 5, vertical: 5),
                       child: TextFormField(
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
@@ -123,7 +137,7 @@ class FormClient extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 7),
+                          horizontal: 5, vertical: 5),
                       child: TextFormField(
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
@@ -145,7 +159,7 @@ class FormClient extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: Container(
                 width: 700,
-                height: 325,
+                height: 310,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border.all(
@@ -154,6 +168,7 @@ class FormClient extends StatelessWidget {
                   ),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
                       'Coordonnés',
@@ -162,7 +177,7 @@ class FormClient extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 7),
+                          horizontal: 5, vertical: 5),
                       child: TextField(
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
@@ -175,7 +190,7 @@ class FormClient extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 7),
+                          horizontal: 5, vertical: 5),
                       child: TextFormField(
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
@@ -198,7 +213,7 @@ class FormClient extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 7),
+                          horizontal: 5, vertical: 5),
                       child: TextFormField(
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
@@ -221,7 +236,7 @@ class FormClient extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 7),
+                          horizontal: 5, vertical: 5),
                       child: TextFormField(
                           decoration: InputDecoration(
                             border: const OutlineInputBorder(),
