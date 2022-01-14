@@ -15,6 +15,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final RxList<Client> clients = [
+      Client(
+          firstName: "Jean-Pierre",
+          lastName: "Dupont",
+          tel: "06 07 68 60 95",
+          email: "jp.dupont@xefi.fr",
+          societe: "Xefi"),
+      Client(
+          firstName: "Alain",
+          lastName: "Terrieur",
+          tel: "07 41 10 54 91",
+          email: "a.terrieur@xefi.fr",
+          societe: "Xefi"),
+      Client(
+          firstName: "Alex",
+          lastName: "Terrieur",
+          tel: "09 15 24 36 20",
+          email: "a.terrieur1@xefi.fr",
+          societe: "Xefi"),
+    ].obs;
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -33,49 +53,15 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/ListClient',
-          page: () => ClientListView(
-              listClients: <Client>[
-            Client(
-                firstName: "Jean-Pierre",
-                lastName: "Dupont",
-                tel: "06 07 68 60 95",
-                email: "jp.dupont@xefi.fr",
-                societe: "Xefi"),
-            Client(
-                firstName: "Alain",
-                lastName: "Terrieur",
-                tel: "07 41 10 54 91",
-                email: "a.terrieur@xefi.fr",
-                societe: "Xefi"),
-            Client(
-                firstName: "Alex",
-                lastName: "Terrieur",
-                tel: "09 15 24 36 20",
-                email: "a.terrieur1@xefi.fr",
-                societe: "Xefi"),
-            Client(
-                firstName: "Alex",
-                lastName: "Terrieur",
-                tel: "09 15 24 36 20",
-                email: "a.terrieur1@xefi.fr",
-                societe: "Xefi"),
-            Client(
-                firstName: "Alex",
-                lastName: "Terrieur",
-                tel: "09 15 24 36 20",
-                email: "a.terrieur1@xefi.fr",
-                societe: "Xefi"),
-            Client(
-                firstName: "Alex",
-                lastName: "Terrieur",
-                tel: "09 15 24 36 20",
-                email: "a.terrieur1@xefi.fr",
-                societe: "Xefi"),
-          ].obs),
+          page: () => ClientListView(listClients: clients),
         ),
         GetPage(
           name: '/ModifyClient',
-          page: () => FormClient(),
+          page: () => FormClient(
+            title: "Nouveau client",
+            client: Client(),
+            listClients: clients,
+          ),
         ),
       ],
     );

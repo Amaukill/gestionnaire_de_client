@@ -29,6 +29,7 @@ class ClientListView extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
                   child: ClientView(
                     client: listClients[index],
+                    listClients: listClients,
                   ),
                 );
               },
@@ -39,7 +40,19 @@ class ClientListView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(
-            FormClient(),
+            FormClient(
+              title: "Nouveau client",
+              client: Client(
+                  firstName: "Prénom",
+                  lastName: "Nom",
+                  tel: "Téléphone",
+                  telPro: "Téléphone professionnel",
+                  fax: "Fax",
+                  email: "Email",
+                  societe: "Société",
+                  poste: "Poste"),
+              listClients: listClients,
+            ),
           );
         },
         backgroundColor: Colors.red.shade800,
@@ -51,7 +64,9 @@ class ClientListView extends StatelessWidget {
 
 class ClientView extends StatelessWidget {
   final Client client;
-  const ClientView({Key? key, required this.client}) : super(key: key);
+  final RxList<Client> listClients;
+  const ClientView({Key? key, required this.client, required this.listClients})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +98,9 @@ class ClientView extends StatelessWidget {
                 onPressed: () {
                   Get.to(
                     FormClient(
+                      title: client.lastName + "" + client.firstName,
                       client: client,
+                      listClients: listClients,
                     ),
                   );
                 },
